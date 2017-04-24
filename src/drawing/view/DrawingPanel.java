@@ -5,6 +5,8 @@ import drawing.controller.DrawingController;
 import java.awt.Dimension;
 import java.awt.Color;
 import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class DrawingPanel extends JPanel
 {
@@ -43,11 +45,17 @@ public class DrawingPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -10, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.WEST, rectangleButton, 10, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 10, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, 290, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, 346, SpringLayout.NORTH, this);
 	}
 	private void setupListeners()
 	{
-		
+		rectangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addRectangles();
+			}
+		});
 	}
 	
 //set 500x300
